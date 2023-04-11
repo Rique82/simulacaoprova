@@ -29,12 +29,9 @@
             border-radius: 25px;
             left:58px;
             top:172px; 
-            background-color: green;
+          
         }
-        .P00:active {
-           background-color: red;
-         }
-
+        
         .P01
         {
             position: absolute;
@@ -43,7 +40,7 @@
             border-radius: 25px;
             left:150px;
             top:172px; 
-            background-color: green
+          
         }
         .P10
         {
@@ -53,7 +50,7 @@
             border-radius: 25px;
             left:58px;
             top:260px; 
-            background-color: green
+          
         }
         .P11
         {
@@ -63,7 +60,7 @@
             border-radius: 25px;
             left:150px;
             top:260px; 
-            background-color: green
+        
         }
         .P20
         {
@@ -73,7 +70,7 @@
             border-radius: 25px;
             left:58px;
             top:350px; 
-            background-color: green
+         
         }
         .P21
         {
@@ -83,7 +80,7 @@
             border-radius: 25px;
             left:150px;
             top:350px; 
-            background-color: green
+            
         }
         .P30
         {
@@ -93,7 +90,7 @@
             border-radius: 25px;
             left:58px;
             top:440px; 
-            background-color: green
+       
         }
         .P31
         {
@@ -103,7 +100,7 @@
             border-radius: 25px;
             left:150px;
             top:440px; 
-            background-color: green
+           
         }
         .P40
         {
@@ -113,7 +110,7 @@
             border-radius: 25px;
             left:58px;
             top:530px; 
-            background-color: green
+           
         }
         .P41
         {
@@ -123,7 +120,7 @@
             border-radius: 25px;
             left:150px;
             top:530px; 
-            background-color: green
+         
         }
         .P50
         {
@@ -133,7 +130,7 @@
             border-radius: 25px;
             left:58px;
             top:619px; 
-            background-color: green
+            
         }
         .P51
         {
@@ -143,7 +140,7 @@
             border-radius: 25px;
             left:150px;
             top:619px; 
-            background-color: green
+           
         }
         .P02
         {
@@ -153,7 +150,7 @@
             border-radius: 25px;
             left:320px;
             top:172px; 
-            background-color: green
+           
         }
         .P03
         {
@@ -163,7 +160,7 @@
             border-radius: 25px;
             left:413px;
             top:172px; 
-            background-color: green
+           
         }
         .P12
         {
@@ -173,7 +170,7 @@
             border-radius: 25px;
             left:320px;
             top:260px; 
-            background-color: green
+           
         }
         .P13
         {
@@ -183,7 +180,7 @@
             border-radius: 25px;
             left:413px;
             top:260px; 
-            background-color: green
+            
         }
         .P22
         {
@@ -193,7 +190,7 @@
             border-radius: 25px;
             left:320px;
             top:350px; 
-            background-color: green
+            
         }
         .P23
         {
@@ -203,7 +200,7 @@
             border-radius: 25px;
             left:413px;
             top:350px; 
-            background-color: green
+            
         }
         .P32
         {
@@ -213,7 +210,7 @@
             border-radius: 25px;
             left:320px;
             top:440px; 
-            background-color: green
+          
         }
         .P33
         {
@@ -223,7 +220,7 @@
             border-radius: 25px;
             left:413px;
             top:440px; 
-            background-color: green
+           
         }
         .P42
         {
@@ -233,7 +230,7 @@
             border-radius: 25px;
             left:320px;
             top:530px; 
-            background-color: green
+            
         }
         .P43
         {
@@ -243,8 +240,7 @@
             border-radius: 25px;
             left:413px;
             top:530px; 
-            background-color: green
-        }
+        } 
         .P52
         {
             position: absolute;
@@ -253,7 +249,7 @@
             border-radius: 25px;
             left:320px;
             top:619px; 
-            background-color: green
+           
         }
         .P53
         {
@@ -263,7 +259,7 @@
             border-radius: 25px;
             left:413px;
             top:619px; 
-            background-color: green
+           
         }
         .mensagem
         {
@@ -272,9 +268,7 @@
             background-color: yellow;
             text-align: center;
         }
-       .P00:click{
-        background-color: red;
-       }
+       
     </style>
 </head>
 <body onload="Limpar();">
@@ -313,305 +307,43 @@
         <div onclick="Preencher('P53');" class="P53" id="P53"></div>
     </div>
     <br>
-    <div class="mensagem" id="mensagem">poltronas vendidas:
-        <p id="total"></p>
-    </div>
+    <div class="mensagem" id="mensagem">poltronas vendidas: 0</div>
     
 </body>
 
 <script>
    // COMPLETE O PROGRAMA COM O CÓDIGO JAVASCRIPT
    // DE ACORDO COM O VÍDEO:
-   var P00 = document.getElementById("P00");
-var clique = false;
+     vendidas = 0
+    function Limpar()
+    {
+      for (linha=0;linha<=5;linha++)
+      {
+        for(coluna=0;coluna<=3;coluna++)
+        {
+          meu_id = "P" + linha + coluna
+          document.getElementById(meu_id).style.backgroundColor = "green"      
+        }
+      }
+    }
 
-P00.addEventListener("click", function() {
-  if (clique) {
-    P00.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P00.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P01 = document.getElementById("P01");
-var clique = false;
+    function Preencher(meu_id)
+    {
+      if (document.getElementById(meu_id).style.backgroundColor == "green")
+      {
+        document.getElementById(meu_id).style.backgroundColor = "red"
+        vendidas = vendidas + 1
+        mensagem.innerHTML = "poltronas vendidas: " + vendidas
+      }
+      else
+      {
+        document.getElementById(meu_id).style.backgroundColor = "green"
+        vendidas = vendidas - 1
+        mensagem.innerHTML = "poltronas vendidas: " + vendidas
+      }
+    }
 
-P01.addEventListener("click", function() {
-  if (clique) {
-    P01.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P01.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P02 = document.getElementById("P02");
-var clique = false;
-
-P02.addEventListener("click", function() {
-  if (clique) {
-    P02.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P02.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P03 = document.getElementById("P03");
-var clique = false;
-
-P03.addEventListener("click", function() {
-  if (clique) {
-    P03.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P03.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P10 = document.getElementById("P10");
-var clique = false;
-
-P10.addEventListener("click", function() {
-  if (clique) {
-    P10.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P10.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P11 = document.getElementById("P11");
-var clique = false;
-
-P11.addEventListener("click", function() {
-  if (clique) {
-    P11.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P11.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P12 = document.getElementById("P12");
-var clique = false;
-
-P12.addEventListener("click", function() {
-  if (clique) {
-    P12.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P12.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P13 = document.getElementById("P13");
-var clique = false;
-
-P13.addEventListener("click", function() {
-  if (clique) {
-    P13.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P13.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P20 = document.getElementById("P20");
-var clique = false;
-
-P20.addEventListener("click", function() {
-  if (clique) {
-    P20.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P20.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P21 = document.getElementById("P21");
-var clique = false;
-
-P21.addEventListener("click", function() {
-  if (clique) {
-    P21.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P21.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P22 = document.getElementById("P22");
-var clique = false;
-
-P22.addEventListener("click", function() {
-  if (clique) {
-    P22.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P22.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P23 = document.getElementById("P23");
-var clique = false;
-
-P23.addEventListener("click", function() {
-  if (clique) {
-    P23.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P23.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P30 = document.getElementById("P30");
-var clique = false;
-
-P30.addEventListener("click", function() {
-  if (clique) {
-    P30.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P30.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P31 = document.getElementById("P31");
-var clique = false;
-
-P31.addEventListener("click", function() {
-  if (clique) {
-    P31.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P31.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P32 = document.getElementById("P32");
-var clique = false;
-
-P32.addEventListener("click", function() {
-  if (clique) {
-    P32.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P32.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P33 = document.getElementById("P33");
-var clique = false;
-
-P33.addEventListener("click", function() {
-  if (clique) {
-    P33.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P33.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P40 = document.getElementById("P40");
-var clique = false;
-
-P40.addEventListener("click", function() {
-  if (clique) {
-    P40.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P40.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P41 = document.getElementById("P41");
-var clique = false;
-
-P41.addEventListener("click", function() {
-  if (clique) {
-    P41.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P41.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P42 = document.getElementById("P42");
-var clique = false;
-
-P42.addEventListener("click", function() {
-  if (clique) {
-    P42.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P42.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P43 = document.getElementById("P43");
-var clique = false;
-
-P43.addEventListener("click", function() {
-  if (clique) {
-    P43.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P43.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P50 = document.getElementById("P50");
-var clique = false;
-
-P50.addEventListener("click", function() {
-  if (clique) {
-    P50.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P50.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P51 = document.getElementById("P51");
-var clique = false;
-
-P51.addEventListener("click", function() {
-  if (clique) {
-    P51.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P51.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P52 = document.getElementById("P52");
-var clique = false;
-
-P52.addEventListener("click", function() {
-  if (clique) {
-    P52.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P52.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-var P53 = document.getElementById("P53");
-var clique = false;
-
-P53.addEventListener("click", function() {
-  if (clique) {
-    P53.style.backgroundColor = "green";
-    clique = false;
-  } else {
-    P53.style.backgroundColor = "red";
-    clique = true;
-  }
-});
-
-
+    
 
 
 
